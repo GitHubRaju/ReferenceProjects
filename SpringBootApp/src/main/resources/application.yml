@@ -1,0 +1,21 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/test
+    driver-class-name: com.mysql.jdbc.Driver
+    db.username: root
+    db.password: root
+  jpa:
+    hibernate:
+      naming-strategy: org.hibernate.cfg.DefaultNamingStrategy
+    database: SQL_SERVER
+    show-sql: true
+    
+    properties:
+        dialect: org.hibernate.dialect.SQLServer2012Dialect
+        hibernate.hbm2ddl.auto: update
+        id:
+          new_generator_mappings: false
+  application:
+    name: SpringBootApp
+  jmx:
+    enabled: false
