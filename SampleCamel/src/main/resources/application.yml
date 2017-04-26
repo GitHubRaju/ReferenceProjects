@@ -1,0 +1,42 @@
+spring:
+  datasource:
+    url: jdbc:sqlserver://WINX-V0270\MSSQLSERVER2014;DatabaseName=JBHTEST;sendStringParametersAsUnicode=true;integratedSecurity=true;applicationName=SampleCamel
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    max-active: 20
+  jpa:
+    hibernate:
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    database: SQL_SERVER
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.SQLServer2012Dialect
+        id:
+          new_generator_mappings: false
+  jmx:
+    enabled: false
+  application:
+    name: SampleCamel
+  amq:
+    messaging:
+      producerBrokerURL: tcp://localhost:61616
+      consumerBrokerURL: tcp://localhost:61616
+      maxConnections: 10
+      maximumActiveSession: 15
+      maximumRedeliveryDelay: 600000
+      maximumRedeliveries: 5
+      concurrentConsumers: 15
+      backOffMultiplier: 2
+  wmq:
+    messaging:
+      wmqHostName: JBHMQD1.JBHUNT.COM
+      wmqChannel: MKT.CLIENT1
+      wmqQueueManager: MQAPPD1
+      wmqPort: 1414
+      wmqTransportType: 1
+      wmqConcurrentConsumers: 15
+
+server:
+  port: 8081
+  contextPath: /sample

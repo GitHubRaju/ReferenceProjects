@@ -1,0 +1,181 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>SampleCamel</groupId>
+	<artifactId>SampleCamel</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
+
+	<name>SampleCamel</name>
+	<url>http://maven.apache.org</url>
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>1.4.1.RELEASE</version>
+		<relativePath /> <!-- lookup parent from repository -->
+	</parent>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<camel.spring.boot.version>2.17.0</camel.spring.boot.version>
+		<spring.cloud.starter.config.version>1.1.0.M5</spring.cloud.starter.config.version>
+		<sleuth.version>1.0.0.RC1</sleuth.version>
+		<lombok.version>1.16.8</lombok.version>
+		<org.mapstruct.version>1.0.0.Final</org.mapstruct.version>
+		<camel.spring.boot.version>2.17.0</camel.spring.boot.version>
+		<sqljdbc.version>6.0</sqljdbc.version>
+		<java.version>1.8</java.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.microsoft.sqlserver.jdbc</groupId>
+			<artifactId>sqljdbc4.2</artifactId>
+			<version>${sqljdbc.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-java8</artifactId>
+			<version>5.1.0.Final</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-rest</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-rest</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-jersey</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web-services</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-activemq</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>${lombok.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.mapstruct</groupId>
+			<artifactId>mapstruct-jdk8</artifactId>
+			<version>${org.mapstruct.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-spring-boot</artifactId>
+			<version>${camel.spring.boot.version}</version> <!-- use the same version as your Camel core version -->
+		</dependency>
+		<dependency>
+			<groupId>org.apache.activemq</groupId>
+			<artifactId>activemq-camel</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jms</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-jaxb</artifactId>
+			<version>${camel.spring.boot.version}</version> <!-- use the same version as your Camel core version -->
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.apache.camel/camel-jackson -->
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-jackson</artifactId>
+			<version>2.17.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-xstream</artifactId>
+			<version>2.17.0</version>
+		</dependency>
+			<dependency>
+			<groupId>com.fasterxml.jackson.datatype</groupId>
+			<artifactId>jackson-datatype-jsr310</artifactId>
+		</dependency>
+		 <dependency>
+        <groupId>org.json</groupId>
+        <artifactId>json</artifactId>
+        <version>20090211</version>
+    </dependency>
+	<!-- 	<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-xstream</artifactId>
+			<version>2.17.0</version>
+		</dependency> -->
+
+		<!-- https://mvnrepository.com/artifact/org.apache.camel/camel-jetty -->
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-jetty</artifactId>
+			<version>2.17.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-http</artifactId>
+			<version>${camel.spring.boot.version}</version>  <!-- use the same version as your Camel core version -->
+		</dependency>
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-spring-boot</artifactId>
+			<version>${camel.spring.boot.version}</version> <!-- use the same version as your Camel core version -->
+		</dependency>
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-servlet</artifactId>
+			<version>${camel.spring.boot.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-bindy</artifactId>
+			<version>${camel.spring.boot.version}</version> <!-- use the same version as your Camel core version -->
+		</dependency>
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.5</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.camel</groupId>
+			<artifactId>camel-cxf</artifactId>
+			<version>2.17.0</version>
+		</dependency>
+	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+</project>
