@@ -1,0 +1,42 @@
+{
+	"billTOCode": "",
+	"equipmentClassificationTypeAssociation": "",
+	"totalShipmentWeightQuantity": 54,
+	"unitOfWeightMeasurementCode": "23",
+	"requestedPickUpDate": "2016-12-12",
+	"requestedDeliveryDate": "",
+	"quoteStops": [{
+		"stopSequenceNumber": 12,
+		"customerLocationCode": "cc1100",
+		"stopReasonCode": "pickup",
+		"stopCity": "AAA",
+		"stopStateCode": "vs12",
+		"stopPostalCode": "Zc522"
+	}, {
+		"stopSequenceNumber": 12,
+		"customerLocationCode": "ZXC22",
+		"stopReasonCode": "zxcvZ66",
+		"stopCity": "xzcvz",
+		"stopStateCode": "454d",
+		"stopPostalCode": "zsdf66"
+	}],
+	"quoteRequestItemClass": [{
+		"itemClassificationCode": "zxc66",
+		"itemHandlingTypeCode": "zsdcz",
+		"itemTotalWeightQuantity": 12,
+		"unitOfWeightMeasurementCode": "55",
+		"unitOfLenghtMeasurementCode": "66",
+		"itemCategoryCode": "ASDF",
+		"linearLenght": 45,
+		"palletQuantity": 4
+	}, {
+		"itemClassificationCode": "sdfs",
+		"itemHandlingTypeCode": "sdf",
+		"itemTotalWeightQuantity": 12,
+		"unitOfWeightMeasurementCode": "55",
+		"unitOfLenghtMeasurementCode": "99",
+		"itemCategoryCode": "",
+		"linearLenght": 45,
+		"palletQuantity": 4
+	}]
+}

@@ -1,0 +1,75 @@
+
+		
+
+		JacksonDataFormat jacksonDataFormat = new JacksonDataFormat(TemplateDTO.class);
+		jacksonDataFormat.setAllowJmsType(true);
+		/*jacksonDataFormat.enableFeature(DeserializationFeature.ACCEPT_EMPTY_ARRAY_AS_NULL_OBJECT);
+        jacksonDataFormat.enableFeature(DeserializationFeature.ACCEPT_EMPTY_STRING_AS_NULL_OBJECT);
+        jacksonDataFormat.enableFeature(DeserializationFeature.ACCEPT_SINGLE_VALUE_AS_ARRAY);
+        jacksonDataFormat.enableFeature(DeserializationFeature.READ_ENUMS_USING_TO_STRING);
+        jacksonDataFormat.disableFeature(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);*/
+        
+        from("activeMQProducer:topic:ORDER.T.CAPTURE.TEMPLATE.UPDATEEVENT")
+		.log("Message1 is ${body}")
+		.to("activeMQConsumer:queue:SUB.ORDER.CAPTURE.ORDER.T.CAPTURE.TEMPLATE.UPDATEEVENT").end();
+        
+        from("activeMQConsumer:queue:SUB.ORDER.CAPTURE.ORDER.T.CAPTURE.TEMPLATE.UPDATEEVENT")
+		.log("Message1 is ${body}")
+		.to(postToDocumentApi).log("Message2 is ${body}").end();
+		
+		/*.onException(JBHValidationException.class)*/
+		/*.setBody(simple("${property.jsonMessage}"))*/
+		/*.unmarshal(jacksonDataFormat).convertBodyTo(TemplateDTO.class)
+		.setProperty("TemplateDTO", body())
+		.log("Message2 is ${body}")*/
+		/* .setProperty("TemplateDTO", body())*/
+		/*.process("consumeTemplateDetailsProcessor")*/
+		//.to(postToDocumentApi).log("Message2 is ${body}").end();
+        
+//
+		//from("activemq:queue:SAMPLE_QUEUE").unmarshal().json(JsonLibrary.Jackson, Greeting.class)
+		//.log("from listner  "+"${body}").to("bean:greetingListner?method=receiveQueue");
+        
+        //======================
+        
+		/*from("activeMQConsumer:queue:SUB.ORDER.CAPTURE.ORDER.T.CAPTURE.TEMPLATE.UPDATEEVENT")
+				.log("Message1 is ${body}")
+				.unmarshal().json(JsonLibrary.Jackson, TemplateDTO.class)
+				.onException(JBHValidationException.class)
+				.setBody(simple("${property.jsonMessage}"))
+				//.unmarshal(jacksonDataFormat).convertBodyTo(TemplateDTO.class)
+				.log("Message2 is ${body}")
+				 .setProperty("TemplateDTO", body())
+				.process("consumeTemplateDetailsProcessor")
+				.to(postToDocumentApi).log("Message2 is ${body}").end();*/
+        
+
+		/*from("activeMQProducer:topic:ORDER.T.CAPTURE.TEMPLATE.UPDATEEVENT")
+		.log("topic is ${body}")
+		.to("activeMQConsumer:queue:SUB.ORDER.CAPTURE.ORDER.T.CAPTURE.TEMPLATE.UPDATEEVENT").log("queue is ${body}").end();
+
+		from("activeMQConsumer:queue:SUB.ORDER.CAPTURE.ORDER.T.CAPTURE.TEMPLATE.UPDATEEVENT")
+		.log("queu1 is ${body}")
+		.onException(JBHValidationException.class).unmarshal(jacksonDataFormat).convertBodyTo(TemplateDTO.class)
+		//.process("consumeTemplateDetailsProcessor")
+		.to("bean:templateElasticSearch?method=postToDocumentApi").log("Message2 is ${body}").end();*/
+		/*
+		 * from(
+		 * "activeMQConsumer:queue:SUB.ORDER.CAPTURE.ORDER.T.CAPTURE.TEMPLATE.UPDATEEVENT"
+		 * ).log("Message is ${body}")
+		 * .process("consumeTemplateDetailsProcessor").onException(
+		 * JBHValidationException.class)
+		 * .unmarshal(jaxbDataFormat).convertBodyTo(Template.class).to(
+		 * "direct:consumeTemplateDetails").end();
+		 */
+
+		/*
+		 * from(
+		 * "activeMQConsumer:queue:SUB.ORDER.CAPTURE.ORDER.T.CAPTURE.TEMPLATE.UPDATEEVENT")
+		 * .onException(JBHValidationException.class).setProperty("xmlMessage",
+		 * body()).unmarshal() .json(JsonLibrary.Jackson,
+		 * Template.class).convertBodyTo(Template.class)
+		 * .to("bean:templateRouteProcessor?method=consumeTemplateDetails").end(
+		 * ) .to("direct:consumeTemplateDetails").end();
+		 */
+	
